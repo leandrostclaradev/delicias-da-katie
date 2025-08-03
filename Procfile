@@ -1,1 +1,0 @@
-web: cd backend && java -jar target/delicias-da-katie-0.0.1-SNAPSHOT.jar 
