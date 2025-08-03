@@ -15,6 +15,7 @@ interface Produto {
 }
 
 interface ItemCombo {
+  id: number;
   produto: Produto;
   quantidade: number;
   valorUnitario: number;

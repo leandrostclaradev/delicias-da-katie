@@ -16,6 +16,7 @@ interface Produto {
 }
 
 interface ItemEncomenda {
+  id: number;
   produto: Produto;
   quantidade: number;
   valorUnitario: number;
