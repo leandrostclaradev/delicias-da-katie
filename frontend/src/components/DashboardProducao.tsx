@@ -3,6 +3,7 @@ import Button from './Button';
 import api from '../services/api';
 
 interface ItemVenda {
+  id: number;
   produto: {
     nome: string;
     valor: number;
