@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background: #F5E9DA;
+  min-height: 100vh;
+  color: #1E293B;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+a {
+  color: #3B82F6;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+a:hover {
+  color: #E3C77A;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  color: #1E293B;
+  letter-spacing: -0.5px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #F3F4F6;
+}
+::-webkit-scrollbar-thumb {
+  background: #3B82F6;
+  border-radius: 8px;
+}
