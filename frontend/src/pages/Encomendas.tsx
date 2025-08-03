@@ -51,10 +51,35 @@ const Encomendas: React.FC = () => {
   const [termoBusca, setTermoBusca] = useState('');
   const [abaAtiva, setAbaAtiva] = useState<'ativos' | 'historico'>('ativos');
 
+  const validarDadosEncomendas = (dados: any[]): Encomenda[] => {
+    return dados.map((encomenda: any) => ({
+      ...encomenda,
+      itens: (encomenda.itens || []).map((item: any) => {
+        const quantidade = item.quantidade || 0;
+        const valorUnitario = item.valorUnitario || 0;
+        const valorTotalCalculado = quantidade * valorUnitario;
+        
+        return {
+          ...item,
+          id: item.id || Date.now(), // Preservar ID ou gerar novo
+          quantidade,
+          valorUnitario,
+          valorTotal: item.valorTotal || valorTotalCalculado,
+          produto: {
+            ...item.produto,
+            nome: item.produto?.nome || 'Produto não encontrado',
+            valor: item.produto?.valor || 0
+          }
+        };
+      })
+    }));
+  };
+
   const fetchEncomendas = async () => {
     try {
       const response = await api.get('/encomendas');
-      setEncomendas(response.data);
+      const encomendasValidadas = validarDadosEncomendas(response.data);
+      setEncomendas(encomendasValidadas);
     } catch (error) {
       console.error('Erro ao buscar encomendas:', error);
     }

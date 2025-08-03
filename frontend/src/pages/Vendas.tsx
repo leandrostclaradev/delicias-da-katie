@@ -56,6 +56,7 @@ const Vendas: React.FC = () => {
         
         return {
           ...item,
+          id: item.id || Date.now(), // Preservar ID ou gerar novo
           quantidade,
           valorUnitario,
           valorTotal: item.valorTotal || valorTotalCalculado,
