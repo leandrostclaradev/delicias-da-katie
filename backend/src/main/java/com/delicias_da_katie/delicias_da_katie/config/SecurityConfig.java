@@ -28,11 +28,13 @@ public class SecurityConfig {
             .authorizeHttpRequests(authz -> authz
                 .requestMatchers("/h2-console/**").permitAll()
                 .requestMatchers("/api/**").permitAll()
+                .requestMatchers("/actuator/**").permitAll()
                 .anyRequest().authenticated()
             )
             .csrf(csrf -> csrf
                 .ignoringRequestMatchers("/h2-console/**")
                 .ignoringRequestMatchers("/api/**")
+                .ignoringRequestMatchers("/actuator/**")
             )
             .headers(headers -> headers
                 .frameOptions(frame -> frame.sameOrigin())
