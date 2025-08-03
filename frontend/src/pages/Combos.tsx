@@ -205,6 +205,7 @@ const Combos: React.FC = () => {
       } else {
         console.log('Criando novo item no combo');
         novosItens = [...itensCombo, {
+          id: Date.now(), // Gerar ID único
           produto,
           quantidade: 1,
           valorUnitario: produto.valor

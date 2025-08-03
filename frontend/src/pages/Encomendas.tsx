@@ -100,6 +100,7 @@ const Encomendas: React.FC = () => {
       const valorTotal = selectedProduct.valor * qty;
       
       const newItem: ItemEncomenda = {
+        id: Date.now(), // Gerar ID único
         produto: selectedProduct,
         quantidade: qty,
         valorUnitario: selectedProduct.valor,
